@@ -1,0 +1,70 @@
+<div class ="logForms__global__wrapper">
+    <section class ="login__wrapper">
+        <h1>Connexion</h1>
+        <form id="login__form" method ="POST" novalidate>
+            <?php
+            if($data['loginScore'] === 1) {
+                echo "<div id = 'info__bulle__header__login__form' class ='info__bulle__header__form'>email ou mot de passe incorrect</div>";
+            }
+            ?>
+            <div class ="form__double__input__wrapper">
+                <div class ="form__input__wrapper">
+                    <label class ="form__label" for="login">Email</label>
+                    <input class ="form__input" id = "login" type="email" name="email" required autocomplete ="email">
+                    <div class ="info__bulle__form email__info"></div>
+                </div>
+                <div class ="form__input__wrapper">
+                    <label class ="form__label" for="login__pass">Mot de passe</label>
+                    <div class = "password__input__wrapper">
+                        <input class = "form__input password__input" id="login__pass" type="password" name="pwd1" required>
+                        <i class="eye__icon fa-regular fa-eye" ></i>
+                    </div>
+                    <div class ="info__bulle__form pass__info"></div>
+                </div>
+            </div>
+            <button type="submit" name="login">
+                Se connecter
+            </button>
+        </form>
+    </section>
+    <section class ="singup__wrapper">
+        <h1>Inscription</h1>
+        <span id="msg"></span>
+        <form id ="signupForm" method ="POST">
+            <div class ="form__double__input__wrapper">
+                <div class ="form__input__wrapper">
+                    <label class ="form__label" for="pseudo">Pseudo</label>
+                    <input class ="form__input" id = "pseudo" type="text" name="pseudo" required>
+                </div>
+                <div class ="form__input__wrapper">
+                    <label class ="form__label" for="email">Email</label>
+                    <input class ="form__input" id = "email" type="email" name="email" required autocomplete ="email">
+                </div>
+            </div>
+            <div class ="form__double__input__wrapper">
+                <div class ="form__input__wrapper">
+                    <label class ="form__label" for="password1">Mot de passe</label>
+                    <div class = "password__input__wrapper">
+                        <input class = "form__input password__input" id="password1" type="password" name="pwd1" required>
+                        <i class="eye__icon fa-regular fa-eye" ></i>
+                    </div>
+                </div>
+                <div class ="form__input__wrapper">
+                    <label class ="form__label" for="password2">Confirmer le mot de passe</label>
+                    <div class = "password__input__wrapper">
+                        <input class = "form__input password__input" id="password2" type="password" name="pwd2" required>
+                        <i class="eye__icon fa-regular fa-eye" ></i>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" name="signup" id="signupButton">
+                S'inscrire
+            </button>
+        </form>
+    </section>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="./script/log.js"></script>

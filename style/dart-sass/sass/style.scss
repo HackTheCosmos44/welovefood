@@ -1,0 +1,520 @@
+/*FONTS-------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Kdam+Thmor+Pro&display=swap');
+
+/*MIXINS----------------------------------------------------------------------*/
+
+/*borders*/
+@mixin border-bottom {
+    border-bottom : 1px solid black;
+}
+
+@mixin border-top {
+    border-top : 1px solid black;
+}
+
+/*outline*/
+@mixin outline {
+    outline: 1px solid #000;
+}
+
+/*ALL (html, body)------------------------------------------------------------*/
+
+* {
+    margin:0;
+    padding: 0; 
+}
+
+a {
+    text-decoration :none;
+    color:#000;
+}
+
+html {
+    scroll-behavior: smooth;
+    
+    body{
+        grid-template-rows: 100px auto 1fr auto;
+        display: grid;
+        min-height: 100vh;
+        -webkit-tap-highlight-color: transparent;
+        font-family: 'Bodoni Moda', serif;
+
+        .to__top {
+            background:#000;
+            color:#FFF;
+            position:fixed;
+            bottom:16px;
+            right:32px;
+            width:50px;
+            height:50px;
+            font-size:1.5rem;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            opacity:0;
+            pointer-events:none;
+            transition:all .4s;
+            
+            &.active {
+                bottom:32px;
+                pointer-events:auto;
+                opacity:1;
+            }
+        }
+    }
+}
+
+/*HEADER----------------------------------------------------------------------*/
+header {
+    grid-row: 1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    // background:rgba(0, 10, 0, .5);
+
+    /*gère l'affichage de la navigation du header pour les desktop*/
+    nav {
+        display: none;
+    }
+    
+    /*header pour version mobile et tablet*/
+    .mobile__header__wrapper {
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:2.5rem;
+  
+        .homeLink {
+            font-size:2rem;
+            
+            .plateLogo {
+                width:1.5rem;
+                border-radius:50%;
+            }
+        }
+        
+        i {
+            font-size:2rem;
+            cursor:pointer;
+        }
+    }
+}
+
+/*Navigation du menu burger---------------------------------------------------*/
+
+.burgerNav__wrapper {
+    // background:rgba(0, 0, 0, .3);
+    overflow: hidden;
+    height: 0;
+    opacity: 0;  
+    transition: height 1s, opacity 1s;
+    
+    .burgerNav__list {
+        margin:1rem 1rem 1rem 2rem;
+        list-style:none;
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+        
+        .burgerNav__list__item {
+            display:flex;
+            gap:1rem;
+            
+            i {
+                font-size:1rem;
+            }
+            
+            a{
+                font-weight:600;
+            }
+        }
+        
+       
+    }
+}
+
+/*affiche la barre de navigation du menu burger*/
+.displayNav {
+    overflow-y: hidden;
+    height: 14rem;
+    opacity: 1;
+} 
+
+/*MAIN------------------------------------------------------------------------*/
+
+main {
+    grid-row: 3/4;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:5rem;
+    // background:rgba(30,30, 0, .5);
+}
+
+/*HOME PAGE-------------------------------------------------------------------*/
+.homePage__header {
+    margin-top:2rem;
+    width:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:2rem;
+    h1 {
+        font-size:1.5rem;
+        
+    }
+    
+    h2 {
+        font-size:1rem;
+    }
+    
+    p {
+        
+    }
+}
+
+/*recipes*/
+
+.recipes__gobal__wrapper {
+    margin-top:2rem;
+    width:90%;
+    display:flex;
+    flex-direction:column;
+    
+    gap:2rem;
+    
+    h2 {
+        text-align:center;
+        font-size:1rem;
+    }
+    
+    article {
+        border: 1px solid black;
+        padding:1rem;
+        
+        h3 {
+            text-align:center;
+            text-decoration: underline;
+            margin-bottom:1rem;
+        }
+        
+        ul {
+            margin-left:1rem;
+        }
+    }
+}
+/*LOG-------------------------------------------------------------------------*/
+.logForms__global__wrapper {
+    margin-top:2rem;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+    
+    .login__wrapper, .singup__wrapper {
+        margin-top:2rem;
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:1rem;
+        
+        h1 {
+            text-decoration:underline;
+        }
+    }
+}
+
+/*ADD RECIPE------------------------------------------------------------------*/
+.addRecipe__global__wrapper {
+    margin-top:2rem;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+}
+
+/*UPDATE RECIPE----------------------------------------------------------------*/
+.updateRecipe__global__wrapper {
+    margin-top:2rem;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+}
+
+/*ADD REVIEW------------------------------------------------------------------*/
+.addReview__global__wrapper {
+    margin-top:2rem;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+    
+    h1 {
+        text-align:center;
+    }
+}
+
+/*REVIEWS --------------------------------------------------------------------*/
+.reviews__global__wrapper {
+    margin-top:2rem;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2rem;
+    
+    h1 {
+        text-align:center;
+    }
+    
+    h2 {
+        text-align:center;
+        text-decoration:underline;
+    }
+    
+    .review__wrapper {
+        border:1px solid black;
+        padding:1rem;
+        width:100%;
+        box-sizing: border-box;
+        position:relative;
+        background:lightgrey;
+        
+        &:after {
+            content:'';
+            position: absolute;
+            bottom: -5px;
+            left: 25px;
+            width: 0;
+            height: 0;
+            border-top: solid 20px lightgrey;
+            border-left: solid 20px transparent;
+            border-right: solid 20px transparent;
+            transform:rotate(-77deg);
+        }
+        
+        .evaluation__wrapper {
+            
+            .fa-star {
+                
+                color:gold;
+                    &.opacity {
+                        opacity:.3;
+                    }
+            }
+        }
+        
+        
+    }
+}
+
+/*CONTACT---------------------------------------------------------------------*/
+.contact__wrapper {
+    margin-top:2rem;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+}
+    
+/*FORMS-----------------------------------------------------------------------*/
+form {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    position:relative;
+    
+    .info__bulle__header__form {
+        background:lightgrey;
+        padding:.5rem;
+        position:relative;
+        
+        &:after {
+            content:'';
+            width: 0;
+            height: 0;
+            border-top: solid 10px lightgrey;
+            border-left: solid 10px transparent;
+            border-right: solid 10px transparent;
+            position:absolute;
+            left:20px;
+            bottom:-10px;
+        }
+        
+        &.display__info__bulle {
+            position:absolute;
+            top:-45px;
+            z-index:2;
+        }
+        
+        &.hide__info__bulle {
+            display:none;
+        }
+    }
+    
+    .form__double__input__wrapper {
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:1rem;
+        
+        .form__input__wrapper {
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            position:relative;
+            
+            .form__label {
+                width:100%;
+                
+            }
+            
+            .form__input {
+                padding:.7rem;
+                width:100%;
+                box-sizing:border-box;
+                border-radius:5px;
+                border:none;
+                @include outline;
+                font-family: 'Bodoni Moda', serif;
+                font-size:1rem;
+                position:relative;
+                
+            }
+            
+            textarea {
+                height:20rem;
+            }
+            
+            fieldset {
+                width:100%;
+                border-radius:5px;
+                padding:1rem;
+                box-sizing:border-box;
+                display:flex;
+                justify-content:space-between;
+                
+                .fa-star {
+                    color:gold;
+                }
+
+            }
+                
+            .password__input__wrapper {
+                width:100%;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                position:relative;
+                
+                
+                .password__input {
+                    padding-right:3rem;
+                    width:100%;
+                }
+                
+                .eye__icon {
+                    position:absolute;
+                    right:1rem;
+                    top:50%;
+                    transform: translateY(-50%);
+                }
+                
+            }
+            
+            .info__bulle__form {
+                font-size:.8rem;
+                background:lightgrey;
+                display:flex;
+                align-items:center;
+                width:fit-content;
+                // padding:.5rem;
+                position:relative;
+                opacity:0;
+                height:0;
+                
+                &:after {
+                    content:'';
+                    position: absolute;
+                    top: -5px;
+                    left: 15px;
+                    width: 0;
+                    height: 0;
+                    border-top: solid 10px lightgrey;
+                    border-left: solid 10px transparent;
+                    border-right: solid 10px transparent;
+                    transform:rotate(180deg);
+                }
+                
+                /*utilisé pour afficher les infos bulles si les champs sont invalides*/
+                &.invalid {
+                    padding:.5rem;
+                    opacity:1;
+                    transition:opacity 1s;
+                    z-index :2;
+                    height:1rem;
+                    position:absolute;
+                    bottom:-25px;
+                    
+                }
+            }
+                
+        }
+    }
+    
+    button {
+        width:10rem;
+        margin-top:2rem;
+        background:rgba(10,10,0, .5);
+        font-family: 'Bodoni Moda', serif;
+        padding:1rem;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-weight:600;
+        
+    }
+    
+}
+
+/*MESSAGES TEMPORAIRES-------------------------------------------------------*/
+/*Must be connected*/
+.message__wrapper {
+    width:90%;
+    margin-top: 7rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap: 2rem;
+    
+    .fa-wifi, .fa-envelope-circle-check {
+        font-size:4rem;
+    }
+}
+
+
+
+
+/*FOOTER----------------------------------------------------------------------*/
+footer{
+    grid-row:4/5;
+    padding:1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    @include border-top;
+}

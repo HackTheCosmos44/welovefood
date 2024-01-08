@@ -1,0 +1,49 @@
+<div class = "homePage__header">
+    <!--si l'utilisateur est connecté on affiche un message de bienvenue personnalisé-->
+    <?php if(isset($_SESSION['pseudo'])) { ?>
+        <p>Bonjour <?= $_SESSION['pseudo']; ?></p>
+        <?php } ?>
+    <h1>Bienvenu sur We love food !</h1>
+    <h2>Le site de partage de recettes de cuisine</h2>
+    
+    <p>Sur ce site web vous pouvez ajouter vos recettes de cuisine préférées, et laisser votre avis sur les recettes postées par les autres utilisateurs.</p>
+</div>
+
+<section class ="recipes__gobal__wrapper">
+    <h2>Profitez des recettes partagées par les utiliateurs</h2>
+    <?php 
+    foreach($data['recipes'] as $recipe) {
+    ?>
+        <article class ="recipe">
+            <h3><?= $recipe->getTitle(); ?></h3>
+            <ul>
+                <li><strong>description :</strong> <?= $recipe->getDescription(); ?></li>
+                <li><strong>recette créée par :</strong> <?= $recipe->getPseudo(); ?></li>
+            </ul>
+            <a title ="voir les avis sur la recette" href ="index.php?page=reviews&id=<?=$recipe->getId();?>">Voir les avis pour cette recette</a>
+            <br>
+            
+            <?php
+            //si la recette a été créée par l'utilisateur connecté, il peut la modifier ou la supprimer
+            if(isset($_SESSION['id'])) {
+                if($_SESSION['id'] === $recipe->getUserId()) {
+           
+            ?>
+                <a href="index.php?page=update-recipe&id=<?=$recipe->getId();?>" title ="modifier la recette">Modifier la recette / </a>
+                <a href="index.php?page=remove-recipe&id=<?=$recipe->getId();?>" title ="supprimer la recette">Supprimer la recette</a>
+            <?php
+            //si l'utilisateur connecté n'est pas l'auteur de la recette il peut laisser son avis
+                } else { ?>
+                    
+                    <a href="index.php?page=add-review&id=<?=$recipe->getId();?>" title ="commenter la recette">Donner mon avis</a>
+                <?php    
+                }
+            }
+            ?>
+        </article>
+        
+    <?php
+    }
+    ?>
+    
+</section>

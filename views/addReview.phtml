@@ -1,0 +1,38 @@
+<section class ="addReview__global__wrapper">
+    <h1>Donnez votre avis sur cette recette !</h1>
+    <form method = "POST">
+        <div class ="form__double__input__wrapper">
+            <div class ="form__input__wrapper">
+                <label class ="form__label" for="review">Commentaire</label>
+                <textarea class ="form__input" id = "review" type="text" name="review" maxlength="300"></textarea>
+            </div>
+            <div class ="form__input__wrapper">
+                <fieldset id ="evaluation">
+                    <legend>Note</legend>
+                    <div class ="radio__input__wrapper">
+                        <input type="radio" id ="evaluation1" name="evaluation" value ="1">
+                        <label class ="form__label" for="evaluation1">
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
+                    <div class ="radio__input__wrapper">
+                        <input type="radio" id ="evaluation2" name="evaluation" value ="2">
+                        <label class ="form__label" for="evaluation2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            </label>
+                    </div>
+                    <div class ="radio__input__wrapper">
+                        <input type="radio" id ="evaluation3" name="evaluation" value ="3">
+                        <label class ="form__label" for="evaluation3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <button name ="addReview" type = "submit">Envoyer</button>
+    </form>
+</section>

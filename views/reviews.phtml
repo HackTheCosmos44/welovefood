@@ -1,0 +1,39 @@
+<section class = "reviews__global__wrapper">
+    <h1>Voici les commentaires pour la recette :</h1>
+    <h2><?= $data['recipe']->getTitle() ?></h2>
+    
+    <?php 
+    foreach($data['reviews'] as $review) {
+    ?>
+        <article class ="review__wrapper">
+            <?php   if($review->getEvaluation() == 1) { ?>
+                            <div class ="evaluation__wrapper">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star opacity"></i>
+                                <i class="fa-solid fa-star opacity"></i>
+                            </div>
+                    <?php }
+                        if ($review->getEvaluation() == 2) { ?>
+                            <div class ="evaluation__wrapper">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star opacity"></i>
+                            </div>
+                    <?php }
+                        if ($review->getEvaluation() == 3) { ?>
+                            <div class ="evaluation__wrapper">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                    <?php }
+                ?>
+            <p>Créé le <?= $review->formatTheDate($review->getCreationDate()); ?></p>
+            <p><?= $review->getReview();?></p>
+            <p>Posté par : <?= $review->getPseudo();?></p>
+        </article>
+        
+    <?php    
+        }
+    ?>
+</section>

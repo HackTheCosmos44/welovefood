@@ -1,0 +1,18 @@
+<section class ="addRecipe__global__wrapper">
+    <h1>Ajoutez une recette !</h1>
+    <form method = "POST">
+        <div class ="form__double__input__wrapper">
+            <div class ="form__input__wrapper">
+                <label class ="form__label" for="title">Titre de la recette</label>
+                <input class ="form__input" id = "title" type="text" name="title" required>
+            </div>
+        </div>
+        <div class ="form__double__input__wrapper">
+            <div class ="form__input__wrapper">
+                <label class ="form__label" for="recipeDescription">Description de la recette</label>
+                <textarea class = "form__input" id="recipeDescription" name= "recipeDescription" maxlength="300"></textarea>
+            </div>
+        </div>
+        <button name ="addRecipe" type = "submit">Ajouter</button>
+    </form>
+</section>
